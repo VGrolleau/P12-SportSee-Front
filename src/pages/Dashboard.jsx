@@ -10,20 +10,46 @@ import { useParams } from 'react-router';
 import { useEffect } from 'react';
 
 function Dashboard() {
-  const urlId = useParams().userId;
-  let firstName = "Jean";
-  let userDatas;
   let titleDoc;
+  const urlId = useParams().userId;
+
+  let userMainDatas;
+  let firstName = "Jean";
+  let score;
+  let counts;
   USER_MAIN_DATA.forEach(user => {
     if (user.id === parseInt(urlId)) {
-      userDatas = user;
+      userMainDatas = user;
       firstName = user.userInfos.firstName;
+      score = user.score;
+      counts = user.keyData;
+    }
+  });
+
+  let userActivities;
+  USER_ACTIVITY.forEach(userActivity => {
+    if (userActivity.userId === parseInt(urlId)) {
+      userActivities = userActivity;
+    }
+  });
+
+  let userAverageSessions;
+  USER_AVERAGE_SESSIONS.forEach(userAverage => {
+    if (userAverage.userId === parseInt(urlId)) {
+      userAverageSessions = userAverage;
+    }
+  });
+
+  let userPerformances;
+  USER_PERFORMANCE.forEach(userPerformance => {
+    if (userPerformance.userId === parseInt(urlId)) {
+      userPerformances = userPerformance;
     }
   });
 
   useEffect(() => { document.title = titleDoc })
-  if (userDatas) {
-    titleDoc = `SportSee`
+  if (userMainDatas) {
+    titleDoc = "SportSee"
     return (
       <section className="dashboard">
         <h1>Bonjour <span className='firstname'>{firstName}</span></h1>
@@ -32,20 +58,20 @@ function Dashboard() {
 
         <div className='charts-counts'>
           <div className='charts'>
-            <ActivityChart />
-            <AverageChart />
-            <PerformanceChart />
-            <ScoreChart />
+            <ActivityChart userActivities={userActivities} />
+            <AverageChart userAverageSessions={userAverageSessions} />
+            <PerformanceChart userPerformances={userPerformances} />
+            <ScoreChart score={score} />
           </div>
 
           <div className='counts'>
-            <Count />
+            <Count counts={counts} />
           </div>
         </div>
       </section>
     );
   } else {
-    titleDoc = `Kasa - 404`
+    titleDoc = `SportSee - 404`
     return (
       <section className="dashboard">
         <Error />
