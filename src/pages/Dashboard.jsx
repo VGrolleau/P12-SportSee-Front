@@ -11,14 +11,14 @@ import { useEffect } from 'react';
 
 function Dashboard() {
   let titleDoc;
-  const urlId = useParams().userId;
+  const URL_ID = useParams().userId;
 
   let userMainDatas;
   let firstName = "Jean";
   let score;
   let counts;
   USER_MAIN_DATA.forEach(user => {
-    if (user.id === parseInt(urlId)) {
+    if (user.id === parseInt(URL_ID)) {
       userMainDatas = user;
       firstName = user.userInfos.firstName;
       score = user.score;
@@ -28,21 +28,21 @@ function Dashboard() {
 
   let userActivities;
   USER_ACTIVITY.forEach(userActivity => {
-    if (userActivity.userId === parseInt(urlId)) {
+    if (userActivity.userId === parseInt(URL_ID)) {
       userActivities = userActivity;
     }
   });
 
   let userAverageSessions;
   USER_AVERAGE_SESSIONS.forEach(userAverage => {
-    if (userAverage.userId === parseInt(urlId)) {
+    if (userAverage.userId === parseInt(URL_ID)) {
       userAverageSessions = userAverage;
     }
   });
 
   let userPerformances;
   USER_PERFORMANCE.forEach(userPerformance => {
-    if (userPerformance.userId === parseInt(urlId)) {
+    if (userPerformance.userId === parseInt(URL_ID)) {
       userPerformances = userPerformance;
     }
   });
@@ -78,7 +78,6 @@ function Dashboard() {
       </section>
     );
   }
-
 }
 
 export default Dashboard;
