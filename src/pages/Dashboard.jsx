@@ -1,13 +1,14 @@
 import '../utils/style/Dashboard.css';
 
 function Dashboard() {
+  const firstName = "Jean";
 
   return (
-    <div className="dashboard">
-      <h1></h1>
+    <section className="dashboard">
+      <h1>Bonjour <span className='firstname'>{firstName}</span></h1>
 
-      <p>👏</p>
-    </div>
+      <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+    </section>
   );
 }
 
