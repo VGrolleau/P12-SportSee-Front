@@ -1,3 +1,5 @@
+import '../../utils/style/ScoreChart.css';
+
 function ScoreChart() {
     return
 }

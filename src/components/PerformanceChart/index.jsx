@@ -1,3 +1,5 @@
+import '../../utils/style/PerformanceChart.css';
+
 function PerformanceChart() {
     return
 }

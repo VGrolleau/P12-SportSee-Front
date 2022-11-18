@@ -1,3 +1,5 @@
+import '../../utils/style/AverageChart.css';
+
 function AverageChart() {
     return
 }
