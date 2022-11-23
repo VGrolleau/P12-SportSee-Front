@@ -20,7 +20,6 @@ function ActivityChart(props) {
                         tickLine={false}
                         tick={<CustomTick />}
                     />
-                    {console.log(XAxis)}
                     <YAxis
                         dataKey="calories"
                         dx={10}

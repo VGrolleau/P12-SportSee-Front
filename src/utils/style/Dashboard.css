@@ -14,3 +14,8 @@
 .dashboard p {
     font-size: 1.5rem;
 }
+
+.under-charts {
+    width: 100%;
+    /* height: min-content; */
+}

@@ -59,9 +59,11 @@ function Dashboard() {
         <div className='charts-counts'>
           <div className='charts'>
             <ActivityChart userActivities={userActivities} />
-            <AverageChart userAverageSessions={userAverageSessions} />
-            <PerformanceChart userPerformances={userPerformances} />
-            <ScoreChart score={score} />
+            <div className='under-charts'>
+              <AverageChart userAverageSessions={userAverageSessions} />
+              <PerformanceChart userPerformances={userPerformances} />
+              <ScoreChart score={score} />
+            </div>
           </div>
 
           <div className='counts'>
