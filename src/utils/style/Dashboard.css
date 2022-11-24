@@ -17,5 +17,6 @@
 
 .under-charts {
     width: 100%;
-    /* height: min-content; */
+    display: flex;
+    justify-content: space-evenly;
 }

@@ -31,8 +31,8 @@ function ActivityChart(props) {
                     />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(0, 0, 0, 0.1)" }} />
                     <Legend />
-                    <Bar dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
-                    <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]} />
+                    <Bar name='Poids (kg)' dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
+                    <Bar name='Calories brûlées (kCal)' dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]} />
                 </BarChart>
             </ResponsiveContainer>
         </div>

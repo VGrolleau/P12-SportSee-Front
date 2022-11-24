@@ -4,7 +4,7 @@ import '../../utils/style/AverageChart.css';
 function AverageChart(props) {
     const USER_AVERAGE = props.userAverageSessions;
     const USER_AVERAGE_SESSIONS = USER_AVERAGE.sessions;
-    console.log(USER_AVERAGE_SESSIONS);
+    // console.log(USER_AVERAGE_SESSIONS);
 
     return (
         <div className='average-chart'>
