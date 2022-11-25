@@ -1,9 +1,9 @@
+import { PropTypes } from 'prop-types';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import '../../utils/style/ScoreChart.css';
 
 function ScoreChart(props) {
     const SCORE = props.score;
-    console.log(SCORE);
     const pieData = [
         { name: "completed", value: SCORE, fillColor: "#ff0101" },
         { name: "not-completed", value: 1 - SCORE, fillColor: "transparent" },
@@ -24,7 +24,6 @@ function ScoreChart(props) {
                         endAngle={450}
                     >
                         {pieData.map((entry, index) => {
-                            console.log(entry, index)
                             return (
                                 <Cell
                                     key={`cell-${index}`}
@@ -39,6 +38,10 @@ function ScoreChart(props) {
             <p><span>{`${100 * SCORE}%`}</span> de votre objectif</p>
         </div>
     );
+}
+
+ScoreChart.propTypes = {
+    score: PropTypes.number
 }
 
 export default ScoreChart;

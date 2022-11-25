@@ -1,10 +1,11 @@
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { PropTypes } from 'prop-types';
 import '../../utils/style/AverageChart.css';
 
 function AverageChart(props) {
     const USER_AVERAGE = props.userAverageSessions;
     const USER_AVERAGE_SESSIONS = USER_AVERAGE.sessions;
-    // console.log(USER_AVERAGE_SESSIONS);
+    // console.log(USER_AVERAGE);
 
     return (
         <div className='average-chart'>
@@ -21,6 +22,10 @@ function AverageChart(props) {
             </ResponsiveContainer>
         </div>
     )
+}
+
+AverageChart.propTypes = {
+    userAverageSessions: PropTypes.object
 }
 
 export default AverageChart;

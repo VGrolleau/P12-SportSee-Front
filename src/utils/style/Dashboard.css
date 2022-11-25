@@ -15,8 +15,20 @@
     font-size: 1.5rem;
 }
 
+.charts-counts {
+    display: flex;
+}
+
+.charts {
+    width: 80%;
+}
+
 .under-charts {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+}
+
+.counts {
+    width: 20%;
 }

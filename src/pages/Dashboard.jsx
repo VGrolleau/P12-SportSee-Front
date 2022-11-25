@@ -8,6 +8,10 @@ import '../utils/style/Dashboard.css';
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../services/MockedData';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
+import iconCalorie from '../assets/icon-calories.svg';
+import iconProtein from '../assets/icon-proteines.svg';
+import iconCarbonhydrate from '../assets/icon-glucides.svg';
+import iconLipid from '../assets/icon-lipides.svg';
 
 function Dashboard() {
   let titleDoc;
@@ -25,6 +29,31 @@ function Dashboard() {
       counts = user.keyData;
     }
   });
+  console.log(iconCalorie);
+  const CALORIE_COUNT_OBJECT = {
+    text: "Calories",
+    value: counts.calorieCount,
+    unity: "kCal",
+    icon: iconCalorie
+  }
+  const PROTEIN_COUNT_OBJECT = {
+    text: "Protéines",
+    value: counts.proteinCount,
+    unity: "g",
+    icon: iconProtein
+  }
+  const CARBONHYDRATE_COUNT_OBJECT = {
+    text: "Glucides",
+    value: counts.carbohydrateCount,
+    unity: "g",
+    icon: iconCarbonhydrate
+  }
+  const LIPID_COUNT_OBJECT = {
+    text: "Lipides",
+    value: counts.lipidCount,
+    unity: "g",
+    icon: iconLipid
+  }
 
   let userActivities;
   USER_ACTIVITY.forEach(userActivity => {
@@ -67,7 +96,10 @@ function Dashboard() {
           </div>
 
           <div className='counts'>
-            <Count counts={counts} />
+            <Count className='count calorie' countData={CALORIE_COUNT_OBJECT} />
+            <Count className='count protein' countData={PROTEIN_COUNT_OBJECT} />
+            <Count className='count carbonhydrate' countData={CARBONHYDRATE_COUNT_OBJECT} />
+            <Count className='count lipid' countData={LIPID_COUNT_OBJECT} />
           </div>
         </div>
       </section>

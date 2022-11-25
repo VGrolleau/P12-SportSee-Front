@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer } from 'recharts';
 import '../../utils/style/PerformanceChart.css';
 
@@ -37,6 +38,10 @@ function PerformanceChart(props) {
             </ResponsiveContainer>
         </div>
     )
+}
+
+PerformanceChart.propTypes = {
+    userPerformances: PropTypes.object
 }
 
 export default PerformanceChart;
