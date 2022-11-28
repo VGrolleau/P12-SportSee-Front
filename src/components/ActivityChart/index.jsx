@@ -10,27 +10,35 @@ function ActivityChart(props) {
 
     return (
         <div className="activity-chart">
-            <h2>Activité quotidienne</h2>
-            <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={USER_ACTIVITIES_SESSIONS} barGap={8} barCategoryGap="35%">
+            <div className='title-legend'>
+                <h2>Activité quotidienne</h2>
+                <div className='activity-legends'>
+                    <p className='kg-legend'><span></span> Poids (kg)</p>
+                    <p className='kcal-legend'><span></span> Calories brûlées (kCal)</p>
+                </div>
+            </div>
+
+            <ResponsiveContainer className="responsive-container">
+                <BarChart data={USER_ACTIVITIES_SESSIONS} barGap={8} barCategoryGap="10%" className='barchart'>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis
                         dataKey="day"
                         dy={16}
+                        // padding={{ left: -48, right: -48 }}
                         tickLine={false}
                         tick={<CustomTick />}
                     />
                     <YAxis
                         dataKey="calories"
-                        dx={10}
+                        dx={35}
                         domain={["dataMin - 160", "dataMax + 10"]}
                         allowDecimals={false}
                         orientation="right"
                         axisLine={false}
                         tickLine={false}
+                        className="yaxis"
                     />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(0, 0, 0, 0.1)" }} />
-                    <Legend />
                     <Bar name='Poids (kg)' dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
                     <Bar name='Calories brûlées (kCal)' dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]} />
                 </BarChart>

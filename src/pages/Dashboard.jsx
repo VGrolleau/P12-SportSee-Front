@@ -29,7 +29,6 @@ function Dashboard() {
       counts = user.keyData;
     }
   });
-  console.log(iconCalorie);
   const CALORIE_COUNT_OBJECT = {
     text: "Calories",
     value: counts.calorieCount,
