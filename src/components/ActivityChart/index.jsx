@@ -1,7 +1,7 @@
 import '../../utils/style/ActivityChart.css';
 import { PropTypes } from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import CustomTooltip from './CustomTooltip';
+import CustomTooltip from './CustomActivityTooltip';
 
 function ActivityChart(props) {
     const USER_ACTIVITIES = props.userActivities;

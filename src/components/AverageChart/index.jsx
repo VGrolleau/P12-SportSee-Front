@@ -1,12 +1,12 @@
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { PropTypes } from 'prop-types';
 import '../../utils/style/AverageChart.css';
+import CustomTooltip from './CustomAverageTooltip';
 
 function AverageChart(props) {
     const USER_AVERAGE = props.userAverageSessions;
     const USER_ID = USER_AVERAGE.userId;
     const USER_AVERAGE_SESSIONS = USER_AVERAGE.sessions;
-    // console.log(USER_AVERAGE_SESSIONS);
 
     const DAYS = {
         1: "L",
@@ -49,8 +49,6 @@ function AverageChart(props) {
         }
     ]
 
-    // console.log(USER_AVERAGE_SESSIONS_ARRAY);
-
     return (
         <div className='average-chart'>
             <h2>Durée moyenne des<br />sessions</h2>
@@ -60,7 +58,6 @@ function AverageChart(props) {
                     outerRadius="75%"
                     margin={{ top: 0, right: 12, bottom: 24, left: 12 }}
                 >
-                    {/* <CartesianGrid strokeDasharray="3 3" /> */}
                     <XAxis
                         dataKey="day"
                         stroke="rgba(255, 255, 255, 0.6)"
@@ -77,7 +74,7 @@ function AverageChart(props) {
                         domain={[0, "dataMax + 60"]}
                         hide={true}
                     />
-                    <Tooltip />
+                    <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(0, 0, 0, 0.1)" }} />
                     <Line
                         dataKey="sessionLength"
                         type={`${USER_ID === "18" ? "step" : "monotone"}`}

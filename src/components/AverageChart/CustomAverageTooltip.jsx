@@ -1,15 +1,12 @@
-import '../../utils/style/CustomTooltip.css';
+import '../../utils/style/CustomAverageTooltip.css';
 import { PropTypes } from 'prop-types';
 
-function CustomTooltip({ active, payload }) {
+function CustomAverageTooltip({ active, payload }) {
     if (active && payload) {
         return (
             <div className='tooltip-container'>
                 <p className='tooltip-line'>
-                    {`${payload[0].value} kg`}
-                </p>
-                <p className='tooltip-line'>
-                    {`${payload[1].value} kCal`}
+                    {`${payload[0].value} min`}
                 </p>
             </div>
         );
@@ -18,9 +15,9 @@ function CustomTooltip({ active, payload }) {
     return null;
 }
 
-CustomTooltip.propTypes = {
+CustomAverageTooltip.propTypes = {
     active: PropTypes.bool,
     payload: PropTypes.array
 };
 
-export default CustomTooltip;
+export default CustomAverageTooltip;
