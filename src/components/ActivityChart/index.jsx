@@ -17,7 +17,7 @@ function ActivityChart(props) {
                 </div>
             </div>
 
-            <ResponsiveContainer className="responsive-container">
+            <ResponsiveContainer className="responsive-container" height={230}>
                 <BarChart data={USER_ACTIVITIES_SESSIONS} barGap={8} barCategoryGap="10%" className='barchart'>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis
