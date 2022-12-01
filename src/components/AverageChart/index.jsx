@@ -53,7 +53,7 @@ function AverageChart(props) {
 
     return (
         <div className='average-chart'>
-            <h2>Durée moyenne des sessions</h2>
+            <h2>Durée moyenne des<br />sessions</h2>
             <ResponsiveContainer width="100%" height="100%" className="responsive-container">
                 <LineChart
                     data={USER_AVERAGE_SESSIONS_ARRAY}
