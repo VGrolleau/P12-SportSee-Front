@@ -13,8 +13,8 @@ function ScoreChart(props) {
         <div className='score-chart'>
             <h2>Score</h2>
 
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={160} height={160}>
+            <ResponsiveContainer width={160} height={160}>
+                <PieChart>
                     <Pie
                         data={pieData}
                         dataKey="value"
@@ -35,7 +35,7 @@ function ScoreChart(props) {
                 </PieChart>
             </ResponsiveContainer>
 
-            <p><span>{`${100 * SCORE}%`}</span> de votre objectif</p>
+            <p><span>{`${100 * SCORE}%`}</span><br />de votre<br />objectif</p>
         </div>
     );
 }
