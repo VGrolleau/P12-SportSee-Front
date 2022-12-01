@@ -2,3 +2,7 @@
     width: 258px;
     height: 263px;
 }
+
+.average-chart .responsive-container {
+    background-color: #FF0000;
+}

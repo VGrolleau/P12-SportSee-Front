@@ -2,7 +2,6 @@ import '../../utils/style/ActivityChart.css';
 import { PropTypes } from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import CustomTooltip from './CustomTooltip';
-import CustomTick from './CustomTick';
 
 function ActivityChart(props) {
     const USER_ACTIVITIES = props.userActivities;
@@ -24,9 +23,8 @@ function ActivityChart(props) {
                     <XAxis
                         dataKey="day"
                         dy={16}
-                        // padding={{ left: -48, right: -48 }}
                         tickLine={false}
-                        tick={<CustomTick />}
+                        tickFormatter={formatXAxis}
                     />
                     <YAxis
                         dataKey="calories"
@@ -49,6 +47,12 @@ function ActivityChart(props) {
 
 ActivityChart.propTypes = {
     userActivities: PropTypes.object
+}
+
+function formatXAxis(tickItem) {
+    const DATE = new Date(tickItem);
+    let options = { day: 'numeric', month: 'numeric' };
+    return new Intl.DateTimeFormat('fr-FR', options).format(DATE);
 }
 
 export default ActivityChart;
