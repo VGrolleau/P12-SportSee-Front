@@ -114,7 +114,8 @@ function AverageChart(props) {
 }
 
 AverageChart.propTypes = {
-    userAverageSessions: PropTypes.object
+    // userAverageSessions: PropTypes.object
+    userId: PropTypes.string
 }
 
 export default AverageChart;

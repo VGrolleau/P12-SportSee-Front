@@ -1,10 +1,30 @@
 import { PropTypes } from 'prop-types';
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts';
 import '../../utils/style/PerformanceChart.css';
+import { USER_PERFORMANCE } from '../../services/MockedData';
+import { getUserData } from '../../services/CallAPI';
 
 function PerformanceChart(props) {
-    const USER_PERFORMANCES = props.userPerformances;
-    const USER_PERFORMANCES_DATAS = USER_PERFORMANCES.data;
+    const URL_ID = props.userId;
+
+    const { userData, isLoadingData, errorData } = getUserData(URL_ID, "performance");
+
+    let userPerformances;
+    if (userData) {
+        if (userData.data.userId === parseInt(URL_ID)) {
+            userPerformances = userData.data;
+        }
+    } else {
+        USER_PERFORMANCE.forEach(userPerformance => {
+            if (userPerformance.userId === parseInt(URL_ID)) {
+                userPerformances = userPerformance;
+            }
+        });
+    }
+
+    // const USER_PERFORMANCES = props.userPerformances;
+    // const USER_PERFORMANCES_DATAS = USER_PERFORMANCES.data;
+    const USER_PERFORMANCES_DATAS = userPerformances.data;
 
     /* Get performance's datas with french kinds instead of number kinds */
     const FRENCH_KINDS = {
@@ -52,7 +72,8 @@ function PerformanceChart(props) {
 }
 
 PerformanceChart.propTypes = {
-    userPerformances: PropTypes.object
+    // userPerformances: PropTypes.object
+    userId: PropTypes.string
 }
 
 export default PerformanceChart;

@@ -106,19 +106,19 @@ function Dashboard() {
   //   });
   // }
 
-  let userPerformances;
-  const { userPerformance, isLoadingPerformance, errorPerformance } = getUserPerformance(URL_ID);
-  if (userPerformance) {
-    if (userPerformance.data.userId === parseInt(URL_ID)) {
-      userPerformances = userPerformance.data;
-    }
-  } else {
-    USER_PERFORMANCE.forEach(userPerformance => {
-      if (userPerformance.userId === parseInt(URL_ID)) {
-        userPerformances = userPerformance;
-      }
-    });
-  }
+  // let userPerformances;
+  // const { userPerformance, isLoadingPerformance, errorPerformance } = getUserPerformance(URL_ID);
+  // if (userPerformance) {
+  //   if (userPerformance.data.userId === parseInt(URL_ID)) {
+  //     userPerformances = userPerformance.data;
+  //   }
+  // } else {
+  //   USER_PERFORMANCE.forEach(userPerformance => {
+  //     if (userPerformance.userId === parseInt(URL_ID)) {
+  //       userPerformances = userPerformance;
+  //     }
+  //   });
+  // }
 
   useEffect(() => { document.title = titleDoc })
   if (userMainDatas) {
@@ -135,9 +135,9 @@ function Dashboard() {
             {/* <ActivityChart userActivities={userActivities} /> */}
             <div className='under-charts'>
               <AverageChart userId={URL_ID} />
-              {/* <PerformanceChart userId={URL_ID} /> */}
+              <PerformanceChart userId={URL_ID} />
               {/* <AverageChart userAverageSessions={userAverageSessions} /> */}
-              <PerformanceChart userPerformances={userPerformances} />
+              {/* <PerformanceChart userPerformances={userPerformances} /> */}
               <ScoreChart score={score} />
             </div>
           </div>

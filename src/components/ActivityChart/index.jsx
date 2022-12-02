@@ -68,7 +68,8 @@ function ActivityChart(props) {
 }
 
 ActivityChart.propTypes = {
-    userActivities: PropTypes.object
+    // userActivities: PropTypes.object
+    userId: PropTypes.string
 }
 
 function formatXAxis(tickItem) {
