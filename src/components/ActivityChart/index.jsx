@@ -22,18 +22,20 @@ function ActivityChart(props) {
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis
                         dataKey="day"
-                        dy={16}
+                        dy={10}
                         tickLine={false}
                         tickFormatter={formatXAxis}
+                        tick={{ fontSize: '1.17rem' }}
                     />
                     <YAxis
                         dataKey="calories"
-                        dx={35}
+                        dx={20}
                         domain={["dataMin - 160", "dataMax + 10"]}
                         allowDecimals={false}
                         orientation="right"
                         axisLine={false}
                         tickLine={false}
+                        tick={{ fontSize: '1.17rem' }}
                         className="yaxis"
                     />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(0, 0, 0, 0.1)" }} />

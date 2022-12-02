@@ -1,13 +1,13 @@
-.tooltip-container {
+.average-chart .tooltip-container {
     border: 2px solid rgba(255, 255, 255, 0.3);
     background-color: white;
 }
 
-.tooltip-line {
+.average-chart .tooltip-line {
     padding: 0.75rem;
     margin: 0;
     color: black;
-    font-size: .75rem !important;
+    font-size: .67rem;
     font-weight: 500;
     text-align: center;
 }
