@@ -24,8 +24,6 @@ function ActivityChart(props) {
     }
 
     const USER_ACTIVITIES_SESSIONS = userActivities.sessions;
-    // const USER_ACTIVITIES = props.userActivities;
-    // const USER_ACTIVITIES_SESSIONS = USER_ACTIVITIES.sessions;
 
     return (
         <div className="activity-chart">
@@ -68,7 +66,6 @@ function ActivityChart(props) {
 }
 
 ActivityChart.propTypes = {
-    // userActivities: PropTypes.object
     userId: PropTypes.string
 }
 

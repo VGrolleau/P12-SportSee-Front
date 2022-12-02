@@ -5,22 +5,20 @@ import PerformanceChart from '../components/PerformanceChart';
 import ScoreChart from '../components/ScoreChart';
 import Error from '../pages/Error';
 import '../utils/style/Dashboard.css';
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../services/MockedData';
+import { USER_MAIN_DATA } from '../services/MockedData';
+import { getUserData } from '../services/CallAPI';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import iconCalorie from '../assets/icon-calories.svg';
 import iconProtein from '../assets/icon-proteines.svg';
 import iconCarbonhydrate from '../assets/icon-glucides.svg';
 import iconLipid from '../assets/icon-lipides.svg';
-import { getUserData, getUserInfo, getUserActivity, getUserAverage, getUserPerformance } from '../services/CallAPI';
 
 function Dashboard() {
   let titleDoc;
   const URL_ID = useParams().userId;
 
   const { userData, isLoadingData, errorData } = getUserData(URL_ID, "info");
-
-  // const { userInfo, isLoadingInfo, errorInfo } = getUserInfo(URL_ID);
 
   let userMainDatas;
   let firstName;
@@ -35,13 +33,6 @@ function Dashboard() {
       score = userData.data.score;
       counts = userData.data.keyData;
     }
-    // if (userInfo) {
-    //   if (userInfo.data.id === parseInt(URL_ID)) {
-    //     userMainDatas = userInfo.data;
-    //     firstName = userInfo.data.userInfos.firstName;
-    //     score = userInfo.data.score;
-    //     counts = userInfo.data.keyData;
-    //   }
   } else {
     USER_MAIN_DATA.forEach(user => {
       if (user.id === parseInt(URL_ID)) {
@@ -78,48 +69,6 @@ function Dashboard() {
     icon: iconLipid
   }
 
-  // let userActivities;
-  // const { userActivity, isLoadingActivity, errorActivity } = getUserActivity(URL_ID);
-  // if (userActivity) {
-  //   if (userActivity.data.userId === parseInt(URL_ID)) {
-  //     userActivities = userActivity.data;
-  //   }
-  // } else {
-  //   USER_ACTIVITY.forEach(userActivity => {
-  //     if (userActivity.userId === parseInt(URL_ID)) {
-  //       userActivities = userActivity;
-  //     }
-  //   });
-  // }
-
-  // let userAverageSessions;
-  // const { userAverage, isLoadingAverage, errorAverage } = getUserAverage(URL_ID);
-  // if (userAverage) {
-  //   if (userAverage.data.userId === parseInt(URL_ID)) {
-  //     userAverageSessions = userAverage.data;
-  //   }
-  // } else {
-  //   USER_AVERAGE_SESSIONS.forEach(userAverage => {
-  //     if (userAverage.userId === parseInt(URL_ID)) {
-  //       userAverageSessions = userAverage;
-  //     }
-  //   });
-  // }
-
-  // let userPerformances;
-  // const { userPerformance, isLoadingPerformance, errorPerformance } = getUserPerformance(URL_ID);
-  // if (userPerformance) {
-  //   if (userPerformance.data.userId === parseInt(URL_ID)) {
-  //     userPerformances = userPerformance.data;
-  //   }
-  // } else {
-  //   USER_PERFORMANCE.forEach(userPerformance => {
-  //     if (userPerformance.userId === parseInt(URL_ID)) {
-  //       userPerformances = userPerformance;
-  //     }
-  //   });
-  // }
-
   useEffect(() => { document.title = titleDoc })
   if (userMainDatas) {
     titleDoc = "SportSee"
@@ -132,12 +81,9 @@ function Dashboard() {
         <div className='charts-counts'>
           <div className='charts'>
             <ActivityChart userId={URL_ID} />
-            {/* <ActivityChart userActivities={userActivities} /> */}
             <div className='under-charts'>
               <AverageChart userId={URL_ID} />
               <PerformanceChart userId={URL_ID} />
-              {/* <AverageChart userAverageSessions={userAverageSessions} /> */}
-              {/* <PerformanceChart userPerformances={userPerformances} /> */}
               <ScoreChart score={score} />
             </div>
           </div>

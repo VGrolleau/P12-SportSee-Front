@@ -23,9 +23,6 @@ function AverageChart(props) {
         });
     }
 
-    // const USER_AVERAGE = props.userAverageSessions;
-    // const USER_ID = USER_AVERAGE.userId;
-    // const USER_AVERAGE_SESSIONS = USER_AVERAGE.sessions;
     const USER_ID = userAverageSessions.userId;
     const USER_AVERAGE_SESSIONS_API = userAverageSessions.sessions;
 
@@ -114,7 +111,6 @@ function AverageChart(props) {
 }
 
 AverageChart.propTypes = {
-    // userAverageSessions: PropTypes.object
     userId: PropTypes.string
 }
 

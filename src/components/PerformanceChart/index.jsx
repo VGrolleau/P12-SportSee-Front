@@ -21,9 +21,6 @@ function PerformanceChart(props) {
             }
         });
     }
-
-    // const USER_PERFORMANCES = props.userPerformances;
-    // const USER_PERFORMANCES_DATAS = USER_PERFORMANCES.data;
     const USER_PERFORMANCES_DATAS = userPerformances.data;
 
     /* Get performance's datas with french kinds instead of number kinds */
@@ -72,7 +69,6 @@ function PerformanceChart(props) {
 }
 
 PerformanceChart.propTypes = {
-    // userPerformances: PropTypes.object
     userId: PropTypes.string
 }
 
