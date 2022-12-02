@@ -2,11 +2,32 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'rec
 import { PropTypes } from 'prop-types';
 import '../../utils/style/AverageChart.css';
 import CustomTooltip from './CustomAverageTooltip';
+import { USER_AVERAGE_SESSIONS } from '../../services/MockedData';
+import { getUserData } from '../../services/CallAPI';
 
 function AverageChart(props) {
-    const USER_AVERAGE = props.userAverageSessions;
-    const USER_ID = USER_AVERAGE.userId;
-    const USER_AVERAGE_SESSIONS = USER_AVERAGE.sessions;
+    const URL_ID = props.userId;
+
+    const { userData, isLoadingData, errorData } = getUserData(URL_ID, "average");
+
+    let userAverageSessions;
+    if (userData) {
+        if (userData.data.userId === parseInt(URL_ID)) {
+            userAverageSessions = userData.data;
+        }
+    } else {
+        USER_AVERAGE_SESSIONS.forEach(userAverage => {
+            if (userAverage.userId === parseInt(URL_ID)) {
+                userAverageSessions = userAverage;
+            }
+        });
+    }
+
+    // const USER_AVERAGE = props.userAverageSessions;
+    // const USER_ID = USER_AVERAGE.userId;
+    // const USER_AVERAGE_SESSIONS = USER_AVERAGE.sessions;
+    const USER_ID = userAverageSessions.userId;
+    const USER_AVERAGE_SESSIONS_API = userAverageSessions.sessions;
 
     const DAYS = {
         1: "L",
@@ -21,31 +42,31 @@ function AverageChart(props) {
     const USER_AVERAGE_SESSIONS_ARRAY = [
         {
             day: DAYS[1],
-            sessionLength: USER_AVERAGE_SESSIONS[0].sessionLength
+            sessionLength: USER_AVERAGE_SESSIONS_API[0].sessionLength
         },
         {
             day: DAYS[2],
-            sessionLength: USER_AVERAGE_SESSIONS[1].sessionLength
+            sessionLength: USER_AVERAGE_SESSIONS_API[1].sessionLength
         },
         {
             day: DAYS[3],
-            sessionLength: USER_AVERAGE_SESSIONS[2].sessionLength
+            sessionLength: USER_AVERAGE_SESSIONS_API[2].sessionLength
         },
         {
             day: DAYS[4],
-            sessionLength: USER_AVERAGE_SESSIONS[3].sessionLength
+            sessionLength: USER_AVERAGE_SESSIONS_API[3].sessionLength
         },
         {
             day: DAYS[5],
-            sessionLength: USER_AVERAGE_SESSIONS[4].sessionLength
+            sessionLength: USER_AVERAGE_SESSIONS_API[4].sessionLength
         },
         {
             day: DAYS[6],
-            sessionLength: USER_AVERAGE_SESSIONS[5].sessionLength
+            sessionLength: USER_AVERAGE_SESSIONS_API[5].sessionLength
         },
         {
             day: DAYS[7],
-            sessionLength: USER_AVERAGE_SESSIONS[6].sessionLength
+            sessionLength: USER_AVERAGE_SESSIONS_API[6].sessionLength
         }
     ]
 

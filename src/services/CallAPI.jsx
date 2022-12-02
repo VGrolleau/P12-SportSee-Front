@@ -33,7 +33,7 @@ export function getUserData(urlId, category) {
         getUserData()
     }, [])
 
-    return (console.log(userData), { userData, isLoadingData, errorData })
+    return { userData, isLoadingData, errorData }
 }
 
 export function getUserInfo(urlId) {

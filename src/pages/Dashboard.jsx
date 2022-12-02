@@ -92,19 +92,19 @@ function Dashboard() {
   //   });
   // }
 
-  let userAverageSessions;
-  const { userAverage, isLoadingAverage, errorAverage } = getUserAverage(URL_ID);
-  if (userAverage) {
-    if (userAverage.data.userId === parseInt(URL_ID)) {
-      userAverageSessions = userAverage.data;
-    }
-  } else {
-    USER_AVERAGE_SESSIONS.forEach(userAverage => {
-      if (userAverage.userId === parseInt(URL_ID)) {
-        userAverageSessions = userAverage;
-      }
-    });
-  }
+  // let userAverageSessions;
+  // const { userAverage, isLoadingAverage, errorAverage } = getUserAverage(URL_ID);
+  // if (userAverage) {
+  //   if (userAverage.data.userId === parseInt(URL_ID)) {
+  //     userAverageSessions = userAverage.data;
+  //   }
+  // } else {
+  //   USER_AVERAGE_SESSIONS.forEach(userAverage => {
+  //     if (userAverage.userId === parseInt(URL_ID)) {
+  //       userAverageSessions = userAverage;
+  //     }
+  //   });
+  // }
 
   let userPerformances;
   const { userPerformance, isLoadingPerformance, errorPerformance } = getUserPerformance(URL_ID);
@@ -134,9 +134,9 @@ function Dashboard() {
             <ActivityChart userId={URL_ID} />
             {/* <ActivityChart userActivities={userActivities} /> */}
             <div className='under-charts'>
-              {/* <AverageChart userId={URL_ID} />
-              <PerformanceChart userId={URL_ID} /> */}
-              <AverageChart userAverageSessions={userAverageSessions} />
+              <AverageChart userId={URL_ID} />
+              {/* <PerformanceChart userId={URL_ID} /> */}
+              {/* <AverageChart userAverageSessions={userAverageSessions} /> */}
               <PerformanceChart userPerformances={userPerformances} />
               <ScoreChart score={score} />
             </div>
