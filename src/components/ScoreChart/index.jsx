@@ -13,27 +13,25 @@ function ScoreChart(props) {
         <div className='score-chart'>
             <h2>Score</h2>
 
-            <ResponsiveContainer width={160} height={160}>
-                <PieChart>
-                    <Pie
-                        data={pieData}
-                        dataKey="value"
-                        innerRadius={70}
-                        outerRadius={80}
-                        startAngle={90}
-                        endAngle={450}
-                    >
-                        {pieData.map((entry, index) => {
-                            return (
-                                <Cell
-                                    key={`cell-${index}`}
-                                    fill={entry.fillColor}
-                                />
-                            )
-                        })}
-                    </Pie>
-                </PieChart>
-            </ResponsiveContainer>
+            <PieChart width={160} height={160}>
+                <Pie
+                    data={pieData}
+                    dataKey="value"
+                    innerRadius={70}
+                    outerRadius={80}
+                    startAngle={90}
+                    endAngle={450}
+                >
+                    {pieData.map((entry, index) => {
+                        return (
+                            <Cell
+                                key={`cell-${index}`}
+                                fill={entry.fillColor}
+                            />
+                        )
+                    })}
+                </Pie>
+            </PieChart>
 
             <p><span>{`${100 * SCORE}%`}</span><br />de votre<br />objectif</p>
         </div>

@@ -6,12 +6,12 @@ export const USER_MAIN_DATA = [
             lastName: 'UserOneLastName',
             age: 31,
         },
-        score: 0.12,
+        score: 0.22,
         keyData: {
-            calorieCount: 1930,
-            proteinCount: 155,
-            carbohydrateCount: 290,
-            lipidCount: 50
+            calorieCount: 2930,
+            proteinCount: 255,
+            carbohydrateCount: 390,
+            lipidCount: 60
         }
     },
     {
@@ -36,39 +36,39 @@ export const USER_ACTIVITY = [
         userId: 12,
         sessions: [
             {
-                day: '2020-07-01',
-                kilogram: 80,
-                calories: 240
+                day: '2020-07-11',
+                kilogram: 90,
+                calories: 340
             },
             {
-                day: '2020-07-02',
-                kilogram: 80,
-                calories: 220
+                day: '2020-07-12',
+                kilogram: 90,
+                calories: 320
             },
             {
-                day: '2020-07-03',
-                kilogram: 81,
-                calories: 280
+                day: '2020-07-13',
+                kilogram: 91,
+                calories: 380
             },
             {
-                day: '2020-07-04',
-                kilogram: 81,
-                calories: 290
-            },
-            {
-                day: '2020-07-05',
-                kilogram: 80,
-                calories: 160
-            },
-            {
-                day: '2020-07-06',
-                kilogram: 78,
-                calories: 162
-            },
-            {
-                day: '2020-07-07',
-                kilogram: 76,
+                day: '2020-07-14',
+                kilogram: 91,
                 calories: 390
+            },
+            {
+                day: '2020-07-15',
+                kilogram: 90,
+                calories: 260
+            },
+            {
+                day: '2020-07-16',
+                kilogram: 88,
+                calories: 262
+            },
+            {
+                day: '2020-07-17',
+                kilogram: 86,
+                calories: 490
             }
         ]
     },
@@ -121,31 +121,31 @@ export const USER_AVERAGE_SESSIONS = [
         sessions: [
             {
                 day: 1,
-                sessionLength: 30
+                sessionLength: 40
             },
             {
                 day: 2,
-                sessionLength: 23
+                sessionLength: 33
             },
             {
                 day: 3,
-                sessionLength: 45
+                sessionLength: 55
             },
             {
                 day: 4,
-                sessionLength: 50
+                sessionLength: 60
             },
             {
                 day: 5,
-                sessionLength: 0
+                sessionLength: 10
             },
             {
                 day: 6,
-                sessionLength: 0
+                sessionLength: 10
             },
             {
                 day: 7,
-                sessionLength: 60
+                sessionLength: 70
             }
         ]
     },
@@ -198,27 +198,27 @@ export const USER_PERFORMANCE = [
         },
         data: [
             {
-                value: 80,
+                value: 90,
                 kind: 1
             },
             {
-                value: 120,
+                value: 220,
                 kind: 2
             },
             {
-                value: 140,
+                value: 240,
                 kind: 3
             },
             {
-                value: 50,
+                value: 60,
                 kind: 4
             },
             {
-                value: 200,
+                value: 300,
                 kind: 5
             },
             {
-                value: 90,
+                value: 100,
                 kind: 6
             }
         ]

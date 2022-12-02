@@ -12,23 +12,38 @@ import iconCalorie from '../assets/icon-calories.svg';
 import iconProtein from '../assets/icon-proteines.svg';
 import iconCarbonhydrate from '../assets/icon-glucides.svg';
 import iconLipid from '../assets/icon-lipides.svg';
+import { getUserInfo, getUserActivity, getUserAverage, getUserPerformance } from '../services/CallAPI';
 
 function Dashboard() {
   let titleDoc;
   const URL_ID = useParams().userId;
 
+  const { userInfo, isLoadingInfo, errorInfo } = getUserInfo(URL_ID);
+
   let userMainDatas;
-  let firstName = "Jean";
+  let firstName;
+
   let score;
   let counts;
-  USER_MAIN_DATA.forEach(user => {
-    if (user.id === parseInt(URL_ID)) {
-      userMainDatas = user;
-      firstName = user.userInfos.firstName;
-      score = user.score;
-      counts = user.keyData;
+
+  if (userInfo) {
+    if (userInfo.data.id === parseInt(URL_ID)) {
+      userMainDatas = userInfo.data;
+      firstName = userInfo.data.userInfos.firstName;
+      score = userInfo.data.score;
+      counts = userInfo.data.keyData;
     }
-  });
+  } else {
+    USER_MAIN_DATA.forEach(user => {
+      if (user.id === parseInt(URL_ID)) {
+        userMainDatas = user;
+        firstName = user.userInfos.firstName;
+        score = user.score;
+        counts = user.keyData;
+      }
+    });
+  }
+
   const CALORIE_COUNT_OBJECT = {
     text: "Calories",
     value: counts.calorieCount,
@@ -55,25 +70,46 @@ function Dashboard() {
   }
 
   let userActivities;
-  USER_ACTIVITY.forEach(userActivity => {
-    if (userActivity.userId === parseInt(URL_ID)) {
-      userActivities = userActivity;
+  const { userActivity, isLoadingActivity, errorActivity } = getUserActivity(URL_ID);
+  if (userActivity) {
+    if (userActivity.data.userId === parseInt(URL_ID)) {
+      userActivities = userActivity.data;
     }
-  });
+  } else {
+    USER_ACTIVITY.forEach(userActivity => {
+      if (userActivity.userId === parseInt(URL_ID)) {
+        userActivities = userActivity;
+      }
+    });
+  }
 
   let userAverageSessions;
-  USER_AVERAGE_SESSIONS.forEach(userAverage => {
-    if (userAverage.userId === parseInt(URL_ID)) {
-      userAverageSessions = userAverage;
+  const { userAverage, isLoadingAverage, errorAverage } = getUserAverage(URL_ID);
+  if (userAverage) {
+    if (userAverage.data.userId === parseInt(URL_ID)) {
+      userAverageSessions = userAverage.data;
     }
-  });
+  } else {
+    USER_AVERAGE_SESSIONS.forEach(userAverage => {
+      if (userAverage.userId === parseInt(URL_ID)) {
+        userAverageSessions = userAverage;
+      }
+    });
+  }
 
   let userPerformances;
-  USER_PERFORMANCE.forEach(userPerformance => {
-    if (userPerformance.userId === parseInt(URL_ID)) {
-      userPerformances = userPerformance;
+  const { userPerformance, isLoadingPerformance, errorPerformance } = getUserPerformance(URL_ID);
+  if (userPerformance) {
+    if (userPerformance.data.userId === parseInt(URL_ID)) {
+      userPerformances = userPerformance.data;
     }
-  });
+  } else {
+    USER_PERFORMANCE.forEach(userPerformance => {
+      if (userPerformance.userId === parseInt(URL_ID)) {
+        userPerformances = userPerformance;
+      }
+    });
+  }
 
   useEffect(() => { document.title = titleDoc })
   if (userMainDatas) {
@@ -82,7 +118,7 @@ function Dashboard() {
       <section className="dashboard">
         <h1>Bonjour <span className='firstname'>{firstName}</span></h1>
 
-        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        <p>Félicitation! Vous avez explosé vos objectifs hier 👏</p>
 
         <div className='charts-counts'>
           <div className='charts'>
