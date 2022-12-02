@@ -12,13 +12,15 @@ import iconCalorie from '../assets/icon-calories.svg';
 import iconProtein from '../assets/icon-proteines.svg';
 import iconCarbonhydrate from '../assets/icon-glucides.svg';
 import iconLipid from '../assets/icon-lipides.svg';
-import { getUserInfo, getUserActivity, getUserAverage, getUserPerformance } from '../services/CallAPI';
+import { getUserData, getUserInfo, getUserActivity, getUserAverage, getUserPerformance } from '../services/CallAPI';
 
 function Dashboard() {
   let titleDoc;
   const URL_ID = useParams().userId;
 
-  const { userInfo, isLoadingInfo, errorInfo } = getUserInfo(URL_ID);
+  const { userData, isLoadingData, errorData } = getUserData(URL_ID, "info");
+
+  // const { userInfo, isLoadingInfo, errorInfo } = getUserInfo(URL_ID);
 
   let userMainDatas;
   let firstName;
@@ -26,13 +28,20 @@ function Dashboard() {
   let score;
   let counts;
 
-  if (userInfo) {
-    if (userInfo.data.id === parseInt(URL_ID)) {
-      userMainDatas = userInfo.data;
-      firstName = userInfo.data.userInfos.firstName;
-      score = userInfo.data.score;
-      counts = userInfo.data.keyData;
+  if (userData) {
+    if (userData.data.id === parseInt(URL_ID)) {
+      userMainDatas = userData.data;
+      firstName = userData.data.userInfos.firstName;
+      score = userData.data.score;
+      counts = userData.data.keyData;
     }
+    // if (userInfo) {
+    //   if (userInfo.data.id === parseInt(URL_ID)) {
+    //     userMainDatas = userInfo.data;
+    //     firstName = userInfo.data.userInfos.firstName;
+    //     score = userInfo.data.score;
+    //     counts = userInfo.data.keyData;
+    //   }
   } else {
     USER_MAIN_DATA.forEach(user => {
       if (user.id === parseInt(URL_ID)) {
@@ -69,19 +78,19 @@ function Dashboard() {
     icon: iconLipid
   }
 
-  let userActivities;
-  const { userActivity, isLoadingActivity, errorActivity } = getUserActivity(URL_ID);
-  if (userActivity) {
-    if (userActivity.data.userId === parseInt(URL_ID)) {
-      userActivities = userActivity.data;
-    }
-  } else {
-    USER_ACTIVITY.forEach(userActivity => {
-      if (userActivity.userId === parseInt(URL_ID)) {
-        userActivities = userActivity;
-      }
-    });
-  }
+  // let userActivities;
+  // const { userActivity, isLoadingActivity, errorActivity } = getUserActivity(URL_ID);
+  // if (userActivity) {
+  //   if (userActivity.data.userId === parseInt(URL_ID)) {
+  //     userActivities = userActivity.data;
+  //   }
+  // } else {
+  //   USER_ACTIVITY.forEach(userActivity => {
+  //     if (userActivity.userId === parseInt(URL_ID)) {
+  //       userActivities = userActivity;
+  //     }
+  //   });
+  // }
 
   let userAverageSessions;
   const { userAverage, isLoadingAverage, errorAverage } = getUserAverage(URL_ID);
@@ -122,8 +131,11 @@ function Dashboard() {
 
         <div className='charts-counts'>
           <div className='charts'>
-            <ActivityChart userActivities={userActivities} />
+            <ActivityChart userId={URL_ID} />
+            {/* <ActivityChart userActivities={userActivities} /> */}
             <div className='under-charts'>
+              {/* <AverageChart userId={URL_ID} />
+              <PerformanceChart userId={URL_ID} /> */}
               <AverageChart userAverageSessions={userAverageSessions} />
               <PerformanceChart userPerformances={userPerformances} />
               <ScoreChart score={score} />

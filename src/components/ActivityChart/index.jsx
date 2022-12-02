@@ -2,10 +2,30 @@ import '../../utils/style/ActivityChart.css';
 import { PropTypes } from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import CustomTooltip from './CustomActivityTooltip';
+import { USER_ACTIVITY } from '../../services/MockedData';
+import { getUserData } from '../../services/CallAPI';
 
 function ActivityChart(props) {
-    const USER_ACTIVITIES = props.userActivities;
-    const USER_ACTIVITIES_SESSIONS = USER_ACTIVITIES.sessions;
+    const URL_ID = props.userId;
+
+    const { userData, isLoadingData, errorData } = getUserData(URL_ID, "activity");
+
+    let userActivities;
+    if (userData) {
+        if (userData.data.userId === parseInt(URL_ID)) {
+            userActivities = userData.data;
+        }
+    } else {
+        USER_ACTIVITY.forEach(userActivity => {
+            if (userActivity.userId === parseInt(URL_ID)) {
+                userActivities = userActivity;
+            }
+        });
+    }
+
+    const USER_ACTIVITIES_SESSIONS = userActivities.sessions;
+    // const USER_ACTIVITIES = props.userActivities;
+    // const USER_ACTIVITIES_SESSIONS = USER_ACTIVITIES.sessions;
 
     return (
         <div className="activity-chart">
