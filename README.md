@@ -1,6 +1,9 @@
 # Projet 12 Titre Développeur d'Application JavaScript React : SportSee
 
 - [Installation (version française)](README.md#installation-version-française)
+    - [Prérequis](README.md#prérequis)
+- [Installation (english version)](README.md#installation-english-version)
+    - [Prerequisites](README.md#prerequisites)
 
 ## Installation (*version française*)
 
