@@ -1,11 +1,13 @@
 # Projet 12 Titre Développeur d'Application JavaScript React : SportSee
 
-- [Installation (version française)](README.md#installation-version-française)
-    - [Prérequis](README.md#prérequis)
-    - [Étape 1 : installation et lancement du back-end](README.md#étape-1--installation-et-lancement-du-back-end)
-    - [Étape 2 : installation et lancement du front-end](README.md#étape-2--installation-et-lancement-du-front-end)
-- [Installation (english version)](README.md#installation-english-version)
-    - [Prerequisites](README.md#prerequisites)
+- [Installation (version française)](#installation-version-française)
+    - [Prérequis](#prérequis)
+    - [Étape 1 : installation et lancement du back-end](#étape-1--installation-et-lancement-du-back-end)
+    - [Étape 2 : installation et lancement du front-end](#étape-2--installation-et-lancement-du-front-end)
+- [Installation (english version)](#installation-english-version)
+    - [Prerequisites](#prerequisites)
+    - [Step 1: Installating and running back-end](#step-1-installating-and-running-back-end)
+    - [Step 2: Installating and running front-end](#step-2-installating-and-running-front-end)
 
 ---
 
@@ -29,7 +31,7 @@ Pour l'obtenir et l'installer, il faut :
 
 ⚠️ Dans les explications données pour l'installation avec Docker,\
 ⚠️ et plus précisément la commande qui permet de créer et lancer le container,\
-⚠️ **ne pas oublier `dev` en fin de commande**.
+⚠️ **ne pas oublier `dev` en fin de commande**!
 
 ---
 
@@ -53,4 +55,37 @@ Pour consulter le *front-end*, il faut alors aller sur [http://localhost:3001/](
 
 ### Prerequisites
 
+* [NodeJS](https://nodejs.org/en/) (**recommanded version**)
+* [Yarn](https://yarnpkg.com/) (back-end API only)
+* [npm](https://www.npmjs.com/)
 
+---
+
+#### Step 1: Installating and running *back-end*
+
+To work, application requires its back-end API.
+
+To obtain and install it, you need to:
+1. go to [P12-SportSee-Back](https://github.com/VGrolleau/P12-SportSee-Back),
+2. follow given instructions on associated Readme.
+
+⚠️ In the explanations given for the installation with Docker,\
+⚠️ and more precisely the command that allows to create and start the container,\
+⚠️ **don't forget `dev` at the command's end**!
+
+---
+
+#### Step 2: Installating and running *front-end*
+
+Once the API is installed on your PC and working, you must:
+1. fork actual project on your github account,
+2. clone it on your local machine,
+3. install missing packages doing `npm install` (or `npm i`).
+
+From there, project can be started.
+The command to start will depend on your OS:
+- **Linux** or **Mac** : `npm run start_linux_mac`
+- **Windows** : `npm run start_windows`
+*(I needed to modify the basic command to avoid starting front-end on the same port as back-end)*
+
+To consult front-end, you have to go to [http://localhost:3001/](http://localhost:3001/).
