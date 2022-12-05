@@ -45,7 +45,7 @@ Une fois l'API installée sur votre PC et fonctionnelle, il faut :
 À partir de là, le projet peut être lancé.\
 La commande permettant le lancement va dépendre de votre OS :
 - **Linux** ou **Mac** : `npm run start_linux_mac`
-- **Windows** : `npm run start_windows`
+- **Windows** : `npm run start_windows`\
 *(J'ai eu besoin de modifier la commande de base pour éviter le lancement du front-end sur le même port que le back-end)*
 
 Pour consulter le *front-end*, il faut alors aller sur [http://localhost:3001/](http://localhost:3001/).
@@ -85,7 +85,7 @@ Once the API is installed on your PC and working, you must:
 From there, project can be started.
 The command to start will depend on your OS:
 - **Linux** or **Mac** : `npm run start_linux_mac`
-- **Windows** : `npm run start_windows`
+- **Windows** : `npm run start_windows`\
 *(I needed to modify the basic command to avoid starting front-end on the same port as back-end)*
 
 To consult front-end, you have to go to [http://localhost:3001/](http://localhost:3001/).
