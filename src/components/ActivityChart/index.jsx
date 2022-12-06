@@ -1,19 +1,20 @@
 import '../../utils/style/ActivityChart.css';
 import { PropTypes } from 'prop-types';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import CustomTooltip from './CustomActivityTooltip';
 import { USER_ACTIVITY } from '../../services/MockedData';
-import { getUserData } from '../../services/CallAPI';
+import { getUSER_DATA } from '../../services/CallAPI';
 
 function ActivityChart(props) {
     const URL_ID = props.userId;
+    const USER_DATA = props.userData;
 
-    const { userData, isLoadingData, errorData } = getUserData(URL_ID, "activity");
+    // const { userData, isLoadingData, errorData } = getUserData(URL_ID, "activity");
 
     let userActivities;
-    if (userData) {
-        if (userData.data.userId === parseInt(URL_ID)) {
-            userActivities = userData.data;
+    if (USER_DATA) {
+        if (USER_DATA.data.userId === parseInt(URL_ID)) {
+            userActivities = USER_DATA.data;
         }
     } else {
         USER_ACTIVITY.forEach(userActivity => {
@@ -66,7 +67,8 @@ function ActivityChart(props) {
 }
 
 ActivityChart.propTypes = {
-    userId: PropTypes.string
+    userId: PropTypes.string,
+    userData: PropTypes.object
 }
 
 function formatXAxis(tickItem) {

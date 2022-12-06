@@ -6,13 +6,14 @@ import { getUserData } from '../../services/CallAPI';
 
 function PerformanceChart(props) {
     const URL_ID = props.userId;
+    const USER_DATA = props.userData;
 
-    const { userData, isLoadingData, errorData } = getUserData(URL_ID, "performance");
+    // const { userData, isLoadingData, errorData } = getUserData(URL_ID, "performance");
 
     let userPerformances;
-    if (userData) {
-        if (userData.data.userId === parseInt(URL_ID)) {
-            userPerformances = userData.data;
+    if (USER_DATA) {
+        if (USER_DATA.data.userId === parseInt(URL_ID)) {
+            userPerformances = USER_DATA.data;
         }
     } else {
         USER_PERFORMANCE.forEach(userPerformance => {
@@ -69,7 +70,8 @@ function PerformanceChart(props) {
 }
 
 PerformanceChart.propTypes = {
-    userId: PropTypes.string
+    userId: PropTypes.string,
+    userData: PropTypes.object
 }
 
 export default PerformanceChart;

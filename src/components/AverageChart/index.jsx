@@ -7,13 +7,14 @@ import { getUserData } from '../../services/CallAPI';
 
 function AverageChart(props) {
     const URL_ID = props.userId;
+    const USER_DATA = props.userData;
 
-    const { userData, isLoadingData, errorData } = getUserData(URL_ID, "average");
+    // const { userData, isLoadingData, errorData } = getUserData(URL_ID, "average");
 
     let userAverageSessions;
-    if (userData) {
-        if (userData.data.userId === parseInt(URL_ID)) {
-            userAverageSessions = userData.data;
+    if (USER_DATA) {
+        if (USER_DATA.data.userId === parseInt(URL_ID)) {
+            userAverageSessions = USER_DATA.data;
         }
     } else {
         USER_AVERAGE_SESSIONS.forEach(userAverage => {
@@ -111,7 +112,8 @@ function AverageChart(props) {
 }
 
 AverageChart.propTypes = {
-    userId: PropTypes.string
+    userId: PropTypes.string,
+    userData: PropTypes.object
 }
 
 export default AverageChart;

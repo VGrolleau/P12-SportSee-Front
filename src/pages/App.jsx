@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { PropTypes } from 'prop-types';
 
 function App(props) {
     const navigate = useNavigate();
@@ -13,6 +14,10 @@ function App(props) {
     }, []);
 
     return <div>Redirecting...</div>;
+}
+
+App.propTypes = {
+    userId: PropTypes.number
 }
 
 export default App;

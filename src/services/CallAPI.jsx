@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 
-// const BASE_URL = "localhost:3001";
-const BASE_URL = "192.168.1.14:3001";
+// const BASE_URL = "localhost:3000";
+const BASE_URL = "192.168.1.14:3000";
 
+/**
+ * It fetches data from the API and returns an object with the data, a boolean for whether the
+ * data is loading, and an error message if there is one
+ * @param {string} urlId id in URL parameter
+ * @param {string} category chart's category
+ * @returns An object with three properties: userData, isLoadingData, and errorData.
+ */
 export function getUserData(urlId, category) {
     const [userData, setUserData] = useState(null);
     const [isLoadingData, setIsLoadingData] = useState(true);
@@ -35,6 +42,12 @@ export function getUserData(urlId, category) {
     return { userData, isLoadingData, errorData }
 }
 
+/**
+ * It takes a category and a urlId and returns an endpoint
+ * @param {*} category chart's category
+ * @param {*} urlId id in URL parameter
+ * @returns The endpoint for the category.
+ */
 function getEndpointByCategory(category, urlId) {
     switch (category) {
         case "info":

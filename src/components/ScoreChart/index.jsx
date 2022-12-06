@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
+import { Cell, Pie, PieChart } from 'recharts';
 import '../../utils/style/ScoreChart.css';
 
 function ScoreChart(props) {
