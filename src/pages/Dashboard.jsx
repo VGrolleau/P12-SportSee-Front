@@ -37,6 +37,7 @@ function Dashboard() {
   let userMockActivities;
   let actualUserAverage;
   let userMockAverageSessions;
+  let actualUserPerformance;
   let userMockPerformances;
 
   USER_MAIN_DATA.forEach(user => {
@@ -56,11 +57,9 @@ function Dashboard() {
   });
   USER_PERFORMANCE.forEach(userPerformance => {
     if (userPerformance.userId === parseInt(URL_ID)) {
-      userMockPerformances = userPerformance;
+      userMockPerformances = { data: userPerformance };
     }
   });
-
-  console.log(userMainData);
 
   if (MODE === "prod") {
     /** Use call API */
@@ -83,7 +82,8 @@ function Dashboard() {
           actualUserAverage = ModelClass.prepareSessions(getActualUserAverage);
           setUserAverage(actualUserAverage);
 
-          let actualUserPerformance = await getDataByCategory("performance", URL_ID);
+          let getActualUserPerformance = await getDataByCategory("performance", URL_ID);
+          actualUserPerformance = ModelClass.prepareData(getActualUserPerformance);
           setUserPerformance(actualUserPerformance);
 
           // if (!actualUserInfoResponse.ok) {
@@ -126,8 +126,8 @@ function Dashboard() {
           actualUserAverage = ModelClass.prepareSessions(userMockAverageSessions);
           setUserAverage(actualUserAverage);
 
-          // let actualUserPerformance = ModelClass.prepareData(userMockPerformances);
-          // setUserPerformance(actualUserPerformance);
+          let actualUserPerformance = ModelClass.prepareData(userMockPerformances);
+          setUserPerformance(actualUserPerformance);
 
           setErrorData(null);
         } catch (err) {

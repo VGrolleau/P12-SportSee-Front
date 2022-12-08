@@ -1,30 +1,31 @@
 import { PropTypes } from 'prop-types';
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts';
 import '../../utils/style/PerformanceChart.css';
-import { USER_PERFORMANCE } from '../../services/MockedData';
-import { getUserData } from '../../services/CallAPI';
+// import { USER_PERFORMANCE } from '../../services/MockedData';
+// import { getUserData } from '../../services/CallAPI';
 
 function PerformanceChart(props) {
-    const URL_ID = props.userId;
+    // const URL_ID = props.userId;
     const USER_DATA = props.userData;
 
     // const { userData, isLoadingData, errorData } = getUserData(URL_ID, "performance");
 
-    let userPerformances;
-    if (USER_DATA) {
-        if (USER_DATA.data.userId === parseInt(URL_ID)) {
-            userPerformances = USER_DATA.data;
-        }
-    } else {
-        USER_PERFORMANCE.forEach(userPerformance => {
-            if (userPerformance.userId === parseInt(URL_ID)) {
-                userPerformances = userPerformance;
-            }
-        });
-    }
-    const USER_PERFORMANCES_DATAS = userPerformances.data;
+    // let userPerformances;
+    // if (USER_DATA) {
+    //     if (USER_DATA.data.userId === parseInt(URL_ID)) {
+    //         userPerformances = USER_DATA.data;
+    //     }
+    // } else {
+    //     USER_PERFORMANCE.forEach(userPerformance => {
+    //         if (userPerformance.userId === parseInt(URL_ID)) {
+    //             userPerformances = userPerformance;
+    //         }
+    //     });
+    // }
+    // const USER_PERFORMANCES_DATAS = userPerformances.data;
+    const USER_PERFORMANCES_DATA = USER_DATA.data;
 
-    /* Get performance's datas with french kinds instead of number kinds */
+    /** Get performance's data with french kinds instead of number kinds */
     const FRENCH_KINDS = {
         1: "Cardio",
         2: "Energie",
@@ -35,7 +36,7 @@ function PerformanceChart(props) {
     };
     const ORDERED_PERFORMANCES = [];
     for (const kind in FRENCH_KINDS) {
-        for (let data of USER_PERFORMANCES_DATAS) {
+        for (let data of USER_PERFORMANCES_DATA) {
             if (data.kind === parseInt(kind)) {
                 ORDERED_PERFORMANCES.push({
                     value: data.value,
@@ -45,7 +46,7 @@ function PerformanceChart(props) {
         }
     };
 
-    /* Ordering performance's datas in the right order. */
+    /** Ordering performance's datas in the right order. */
     ORDERED_PERFORMANCES.reverse();
 
     return (
@@ -70,7 +71,7 @@ function PerformanceChart(props) {
 }
 
 PerformanceChart.propTypes = {
-    userId: PropTypes.string,
+    // userId: PropTypes.string,
     userData: PropTypes.object
 }
 
