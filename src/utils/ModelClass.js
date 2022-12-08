@@ -1,9 +1,9 @@
 export default class ModelClass {
     // Prepare data
-    static prepareMain(raw) {
+    static prepareData(raw) {
         return raw.data;
     }
-    static prepareActivity(raw) {
+    static prepareSessions(raw) {
         return raw.data.sessions;
     }
 

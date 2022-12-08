@@ -35,6 +35,9 @@ function Dashboard() {
   let counts;
   let actualUserActivity;
   let userMockActivities;
+  let actualUserAverage;
+  let userMockAverageSessions;
+  let userMockPerformances;
 
   USER_MAIN_DATA.forEach(user => {
     if (user.id === parseInt(URL_ID)) {
@@ -46,6 +49,18 @@ function Dashboard() {
       userMockActivities = { data: userActivity };
     }
   });
+  USER_AVERAGE_SESSIONS.forEach(userAverage => {
+    if (userAverage.userId === parseInt(URL_ID)) {
+      userMockAverageSessions = { data: userAverage };
+    }
+  });
+  USER_PERFORMANCE.forEach(userPerformance => {
+    if (userPerformance.userId === parseInt(URL_ID)) {
+      userMockPerformances = userPerformance;
+    }
+  });
+
+  console.log(userMainData);
 
   if (MODE === "prod") {
     /** Use call API */
@@ -61,10 +76,11 @@ function Dashboard() {
           // console.log(response);
 
           let getActualUserActivity = await getDataByCategory("activity", URL_ID);
-          actualUserActivity = ModelClass.prepareActivity(getActualUserActivity);
+          actualUserActivity = ModelClass.prepareSessions(getActualUserActivity);
           setUserActivity(actualUserActivity);
 
-          let actualUserAverage = await getDataByCategory("average", URL_ID);
+          let getActualUserAverage = await getDataByCategory("average", URL_ID);
+          actualUserAverage = ModelClass.prepareSessions(getActualUserAverage);
           setUserAverage(actualUserAverage);
 
           let actualUserPerformance = await getDataByCategory("performance", URL_ID);
@@ -88,7 +104,7 @@ function Dashboard() {
     }, []);
 
     if (userInfo) {
-      userMainInfo = ModelClass.prepareMain(userInfo);
+      userMainInfo = ModelClass.prepareData(userInfo);
       firstName = userMainInfo.userInfos.firstName;
       score = userMainInfo.score;
       counts = userMainInfo.keyData;
@@ -96,7 +112,7 @@ function Dashboard() {
 
   } else {
     /** Call mocked data */
-    userMainInfo = ModelClass.prepareMain(userMainData);
+    userMainInfo = ModelClass.prepareData(userMainData);
     firstName = userMainInfo.userInfos.firstName;
     score = userMainInfo.score;
     counts = userMainInfo.keyData;
@@ -104,13 +120,13 @@ function Dashboard() {
     useEffect(() => {
       const getData = () => {
         try {
-          actualUserActivity = ModelClass.prepareActivity(userMockActivities);
+          actualUserActivity = ModelClass.prepareSessions(userMockActivities);
           setUserActivity(actualUserActivity);
 
-          // let actualUserAverage = await getDataByCategory("average", URL_ID);
-          // setUserAverage(actualUserAverage);
+          actualUserAverage = ModelClass.prepareSessions(userMockAverageSessions);
+          setUserAverage(actualUserAverage);
 
-          // let actualUserPerformance = await getDataByCategory("performance", URL_ID);
+          // let actualUserPerformance = ModelClass.prepareData(userMockPerformances);
           // setUserPerformance(actualUserPerformance);
 
           setErrorData(null);
@@ -137,7 +153,7 @@ function Dashboard() {
   };
 
   useEffect(() => { document.title = titleDoc })
-  if (userMainInfo) {
+  if (userMainInfo && userActivity && userAverage && userPerformance) {
     titleDoc = "SportSee"
     return (
       <section className="dashboard">
@@ -171,7 +187,7 @@ function Dashboard() {
         <h1>Chargement des données...</h1>
       </section>
     );
-  } else if (errorData || !userInfo.data) {
+  } else if (errorData) {
     titleDoc = `SportSee - 404`;
     return (
       <section className="dashboard">

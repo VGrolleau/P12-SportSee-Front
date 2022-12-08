@@ -77,6 +77,7 @@ function ActivityChart(props) {
 
 ActivityChart.propTypes = {
     // userId: PropTypes.string,
+    // userData: PropTypes.object
     userData: PropTypes.array
 }
 

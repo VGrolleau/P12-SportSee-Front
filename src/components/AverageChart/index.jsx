@@ -2,30 +2,37 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'rec
 import { PropTypes } from 'prop-types';
 import '../../utils/style/AverageChart.css';
 import CustomTooltip from './CustomAverageTooltip';
-import { USER_AVERAGE_SESSIONS } from '../../services/MockedData';
-import { getUserData } from '../../services/CallAPI';
+// import { USER_AVERAGE_SESSIONS } from '../../services/MockedData';
+// import { getUserData } from '../../services/CallAPI';
 
 function AverageChart(props) {
-    const URL_ID = props.userId;
+    // const URL_ID = props.userId;
     const USER_DATA = props.userData;
+    // console.log(USER_DATA);
 
     // const { userData, isLoadingData, errorData } = getUserData(URL_ID, "average");
 
-    let userAverageSessions;
-    if (USER_DATA) {
-        if (USER_DATA.data.userId === parseInt(URL_ID)) {
-            userAverageSessions = USER_DATA.data;
-        }
-    } else {
-        USER_AVERAGE_SESSIONS.forEach(userAverage => {
-            if (userAverage.userId === parseInt(URL_ID)) {
-                userAverageSessions = userAverage;
-            }
-        });
-    }
+    // let userAverageSessions;
+    // if (USER_DATA) {
+    //     if (USER_DATA.data.userId === parseInt(URL_ID)) {
+    //         userAverageSessions = USER_DATA.data;
+    //     }
+    // } else {
+    //     USER_AVERAGE_SESSIONS.forEach(userAverage => {
+    //         if (userAverage.userId === parseInt(URL_ID)) {
+    //             userAverageSessions = userAverage;
+    //         }
+    //     });
+    // }
 
-    const USER_ID = userAverageSessions.userId;
-    const USER_AVERAGE_SESSIONS_API = userAverageSessions.sessions;
+    // const USER_ID = userAverageSessions.userId;
+    // const USER_AVERAGE_SESSIONS_API = userAverageSessions.sessions;
+    // const USER_AVERAGE_SESSIONS_API = {};
+    // if (USER_DATA) {
+    //     USER_AVERAGE_SESSIONS_API = USER_DATA;
+    // }
+    let USER_AVERAGE_SESSIONS_API = USER_DATA;
+    // console.log(USER_AVERAGE_SESSIONS_API);
 
     const DAYS = {
         1: "L",
@@ -96,7 +103,7 @@ function AverageChart(props) {
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(0, 0, 0, 0.1)" }} />
                     <Line
                         dataKey="sessionLength"
-                        type={`${USER_ID === "18" ? "step" : "monotone"}`}
+                        type={"monotone"}
                         stroke="rgba(255, 255, 255, 0.6)"
                         strokeWidth={2}
                         dot={false}
@@ -112,8 +119,9 @@ function AverageChart(props) {
 }
 
 AverageChart.propTypes = {
-    userId: PropTypes.string,
-    userData: PropTypes.object
+    // userId: PropTypes.string,
+    // userData: PropTypes.object
+    userData: PropTypes.array
 }
 
 export default AverageChart;
