@@ -105,9 +105,15 @@ function Dashboard() {
 
     if (userInfo) {
       userMainInfo = ModelClass.prepareData(userInfo);
-      firstName = userMainInfo.userInfos.firstName;
-      score = userMainInfo.score;
-      counts = userMainInfo.keyData;
+      if (userMainInfo) {
+        firstName = userMainInfo.userInfos.firstName;
+        score = userMainInfo.score;
+        counts = userMainInfo.keyData;
+      } else {
+        firstName = null;
+        score = null;
+        counts = null;
+      }
     };
 
   } else {
@@ -187,7 +193,7 @@ function Dashboard() {
         <h1>Chargement des données...</h1>
       </section>
     );
-  } else if (errorData) {
+  } else if (errorData || userMainInfo === undefined) {
     titleDoc = `SportSee - 404`;
     return (
       <section className="dashboard">
