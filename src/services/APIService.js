@@ -18,8 +18,12 @@ export function getDataByCategory(category, urlId) {
 }
 
 async function fetchAPI(url) {
-    let result = await fetch(`http://localhost:3000/${url}`);
+    // let result = await fetch(`http://localhost:3000/${url}`);
+    let result = await fetch(`http://192.168.1.14:3000/${url}`);
     let actualUserData = await result.json();
 
+    // console.log(result.ok);
+
+    // return { actualUserData, result };
     return actualUserData;
 }

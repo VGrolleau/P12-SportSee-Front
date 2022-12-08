@@ -2,8 +2,8 @@ export const USER_MAIN_DATA = [
     {
         id: 12,
         userInfos: {
-            firstName: 'UserOneFirstName',
-            lastName: 'UserOneLastName',
+            firstName: 'UserOneFirst',
+            lastName: 'UserOneLast',
             age: 31,
         },
         score: 0.22,
@@ -17,16 +17,16 @@ export const USER_MAIN_DATA = [
     {
         id: 18,
         userInfos: {
-            firstName: 'UseTwoFirsName',
-            lastName: 'UserTwoLastName',
+            firstName: 'UserTwoFirst',
+            lastName: 'UserTwoLast',
             age: 34,
         },
-        score: 0.3,
+        score: 0.4,
         keyData: {
-            calorieCount: 2500,
-            proteinCount: 90,
-            carbohydrateCount: 150,
-            lipidCount: 120
+            calorieCount: 3500,
+            proteinCount: 100,
+            carbohydrateCount: 250,
+            lipidCount: 220
         }
     }
 ]
@@ -37,38 +37,38 @@ export const USER_ACTIVITY = [
         sessions: [
             {
                 day: '2020-07-11',
-                kilogram: 90,
-                calories: 340
+                kilogram: 80,
+                calories: 240
             },
             {
                 day: '2020-07-12',
-                kilogram: 90,
-                calories: 320
+                kilogram: 80,
+                calories: 220
             },
             {
                 day: '2020-07-13',
-                kilogram: 91,
-                calories: 380
+                kilogram: 81,
+                calories: 280
             },
             {
                 day: '2020-07-14',
-                kilogram: 91,
-                calories: 390
+                kilogram: 81,
+                calories: 290
             },
             {
                 day: '2020-07-15',
-                kilogram: 90,
-                calories: 260
+                kilogram: 80,
+                calories: 160
             },
             {
                 day: '2020-07-16',
-                kilogram: 88,
-                calories: 262
+                kilogram: 78,
+                calories: 162
             },
             {
                 day: '2020-07-17',
-                kilogram: 86,
-                calories: 490
+                kilogram: 76,
+                calories: 390
             }
         ]
     },
@@ -76,37 +76,37 @@ export const USER_ACTIVITY = [
         userId: 18,
         sessions: [
             {
-                day: '2020-07-01',
+                day: '2020-07-11',
                 kilogram: 70,
                 calories: 240
             },
             {
-                day: '2020-07-02',
+                day: '2020-07-12',
                 kilogram: 69,
                 calories: 220
             },
             {
-                day: '2020-07-03',
+                day: '2020-07-13',
                 kilogram: 70,
                 calories: 280
             },
             {
-                day: '2020-07-04',
+                day: '2020-07-14',
                 kilogram: 70,
                 calories: 500
             },
             {
-                day: '2020-07-05',
+                day: '2020-07-15',
                 kilogram: 69,
                 calories: 160
             },
             {
-                day: '2020-07-06',
+                day: '2020-07-16',
                 kilogram: 69,
                 calories: 162
             },
             {
-                day: '2020-07-07',
+                day: '2020-07-17',
                 kilogram: 69,
                 calories: 390
             }
@@ -154,31 +154,31 @@ export const USER_AVERAGE_SESSIONS = [
         sessions: [
             {
                 day: 1,
-                sessionLength: 30
-            },
-            {
-                day: 2,
                 sessionLength: 40
             },
             {
-                day: 3,
+                day: 2,
                 sessionLength: 50
+            },
+            {
+                day: 3,
+                sessionLength: 60
             },
             {
                 day: 4,
-                sessionLength: 30
+                sessionLength: 40
             },
             {
                 day: 5,
-                sessionLength: 30
+                sessionLength: 40
             },
             {
                 day: 6,
-                sessionLength: 50
+                sessionLength: 60
             },
             {
                 day: 7,
-                sessionLength: 50
+                sessionLength: 60
             }
         ]
     }
@@ -235,27 +235,27 @@ export const USER_PERFORMANCE = [
         },
         data: [
             {
-                value: 200,
+                value: 300,
                 kind: 1
             },
             {
-                value: 240,
+                value: 340,
                 kind: 2
             },
             {
-                value: 80,
+                value: 90,
                 kind: 3
             },
             {
-                value: 80,
+                value: 90,
                 kind: 4
             },
             {
-                value: 220,
+                value: 320,
                 kind: 5
             },
             {
-                value: 110,
+                value: 210,
                 kind: 6
             }
         ]
