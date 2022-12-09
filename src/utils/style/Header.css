@@ -24,8 +24,24 @@ header {
     font-size: 2rem;
     color: white;
     text-decoration: none;
+    display: inline-block;
+    position: relative;
 }
 
-.header-nav a:hover {
-    text-decoration: underline;
+.header-nav a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+}
+
+.header-nav a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
