@@ -6,7 +6,6 @@ import ScoreChart from '../components/ScoreChart';
 import Error from '../pages/Error';
 import '../utils/style/Dashboard.css';
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../services/MockedData';
-// import { getUserData } from '../services/CallAPI';
 import { getDataByCategory } from '../services/APIService';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
@@ -15,6 +14,8 @@ import iconProtein from '../assets/icon-proteines.svg';
 import iconCarbohydrate from '../assets/icon-glucides.svg';
 import iconLipid from '../assets/icon-lipides.svg';
 import ModelClass from '../utils/ModelClass.js';
+
+/* We can change the mode to see if it's working well */
 const MODE = "prod";
 // const MODE = "dev";
 
@@ -25,7 +26,6 @@ function Dashboard() {
   const [userPerformance, setUserPerformance] = useState(null);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [errorData, setErrorData] = useState(null);
-  // const [responseOk, setResponseOk] = useState(false);
   const URL_ID = useParams().userId;
   let titleDoc;
   let userMainInfo;
@@ -62,17 +62,12 @@ function Dashboard() {
   });
 
   if (MODE === "prod") {
-    /** Use call API */
+    /* Use call API */
     useEffect(() => {
       const getData = async () => {
         try {
-          // console.log(response);
-          // let getActualUserInfo = await getDataByCategory("info", URL_ID);
-          // let actualUserInfo = getActualUserInfo.actualUserData;
           let actualUserInfo = await getDataByCategory("info", URL_ID);
           setUserInfo(actualUserInfo);
-          // let actualUserInfoResponse = getActualUserInfo.result;
-          // console.log(response);
 
           let getActualUserActivity = await getDataByCategory("activity", URL_ID);
           actualUserActivity = ModelClass.prepareSessions(getActualUserActivity);
@@ -85,12 +80,6 @@ function Dashboard() {
           let getActualUserPerformance = await getDataByCategory("performance", URL_ID);
           actualUserPerformance = ModelClass.prepareData(getActualUserPerformance);
           setUserPerformance(actualUserPerformance);
-
-          // if (!actualUserInfoResponse.ok) {
-          //   throw new Error(
-          //     `This is an HTTP error: The status is ${actualUserInfoResponse.status}`
-          //   );
-          // }
 
           setErrorData(null);
         } catch (err) {
@@ -117,7 +106,7 @@ function Dashboard() {
     };
 
   } else {
-    /** Call mocked data */
+    /* Call mocked data */
     userMainInfo = ModelClass.prepareData(userMainData);
     firstName = userMainInfo.userInfos.firstName;
     score = userMainInfo.score;

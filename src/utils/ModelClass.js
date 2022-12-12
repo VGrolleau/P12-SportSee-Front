@@ -1,5 +1,5 @@
 export default class ModelClass {
-    // Prepare data
+    /* Prepare data */
     static prepareData(raw) {
         return raw.data;
     }
@@ -7,7 +7,7 @@ export default class ModelClass {
         return raw.data.sessions;
     }
 
-    // Prepare counts
+    /* Prepare counts */
     static prepareCountCalorie(count, icon) {
         return {
             text: "Calories",

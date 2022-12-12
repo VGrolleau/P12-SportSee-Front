@@ -1,6 +1,10 @@
 import '../../utils/style/CustomActivityTooltip.css';
 import { PropTypes } from 'prop-types';
 
+/**
+ * It returns a div with two p elements if the active and payload props are truthy
+ * @returns A React component
+ */
 function CustomActivityTooltip({ active, payload }) {
     if (active && payload) {
         return (

@@ -8,7 +8,7 @@ function App(props) {
 
     useEffect(() => {
         setTimeout(() => {
-            // Redirect to Dashboard page
+            /* Redirect to Dashboard page */
             navigate(`/dashboard/${userId}`, { replace: true });
         }, 10);
     }, []);

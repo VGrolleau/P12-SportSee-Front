@@ -2,34 +2,9 @@ import '../../utils/style/ActivityChart.css';
 import { PropTypes } from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import CustomTooltip from './CustomActivityTooltip';
-// import { USER_ACTIVITY } from '../../services/MockedData';
-// import { getUSER_DATA } from '../../services/CallAPI';
 
 function ActivityChart(props) {
-    // const URL_ID = props.userId;
     const USER_DATA = props.userData;
-
-    // const { userData, isLoadingData, errorData } = getUserData(URL_ID, "activity");
-
-    // let userActivities;
-    // if (USER_DATA) {
-    //     userActivities = USER_DATA;
-    // }
-    // if (USER_DATA) {
-    //     // if (USER_DATA.data.userId === parseInt(URL_ID)) {
-    //     userActivities = USER_DATA.data;
-    //     // }
-    // } else {
-    //     USER_ACTIVITY.forEach(userActivity => {
-    //         if (userActivity.userId === parseInt(URL_ID)) {
-    //             userActivities = userActivity;
-    //             console.log(userActivities.sessions);
-    //         }
-    //     });
-    // }
-
-    // const USER_ACTIVITIES_SESSIONS = userActivities;
-    // const USER_ACTIVITIES_SESSIONS = userActivities.sessions;
     const USER_ACTIVITIES_SESSIONS = USER_DATA;
 
     if (USER_DATA) {
@@ -72,15 +47,16 @@ function ActivityChart(props) {
             </div>
         )
     }
-
 }
 
 ActivityChart.propTypes = {
-    // userId: PropTypes.string,
-    // userData: PropTypes.object
     userData: PropTypes.array
 }
 
+/**
+ * It takes a date in milliseconds and returns a string in the format "DD/MM"
+ * @returns The date in the format of day/month
+ */
 function formatXAxis(tickItem) {
     const DATE = new Date(tickItem);
     let options = { day: 'numeric', month: 'numeric' };
