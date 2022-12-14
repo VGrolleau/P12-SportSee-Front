@@ -30,8 +30,7 @@ export function getDataByCategory(category, urlId) {
  * @returns The actualUserData is being returned.
  */
 async function fetchAPI(url) {
-    // let result = await fetch(`http://localhost:3000/${url}`);
-    let result = await fetch(`http://192.168.1.12:3000/${url}`);
+    let result = await fetch(`http://localhost:3000/${url}`);
     let actualUserData = await result.json();
 
     return actualUserData;
