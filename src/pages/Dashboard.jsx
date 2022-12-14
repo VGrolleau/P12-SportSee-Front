@@ -154,7 +154,7 @@ function Dashboard() {
       <section className="dashboard">
         <h1>Bonjour <span className='firstname'>{firstName}</span></h1>
 
-        <p>Félicitation! Vous avez explosé vos objectifs hier 👏</p>
+        <p>Félicitations! Vous avez explosé vos objectifs hier 👏</p>
 
         <div className='charts-counts'>
           <div className='charts'>
