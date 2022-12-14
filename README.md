@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Projet 12 Titre Développeur d'Application JavaScript React : SportSee
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Installation (version française)](#installation-version-française)
+    - [Prérequis](#prérequis)
+    - [Étape 1 : installation et lancement du back-end](#étape-1--installation-et-lancement-du-back-end)
+    - [Étape 2 : installation et lancement du front-end](#étape-2--installation-et-lancement-du-front-end)
+- [Installation (english version)](#installation-english-version)
+    - [Prerequisites](#prerequisites)
+    - [Step 1: Installating and running back-end](#step-1-installating-and-running-back-end)
+    - [Step 2: Installating and running front-end](#step-2-installating-and-running-front-end)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Installation (*version française*)
 
-### `npm start`
+### Prérequis
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* [NodeJS](https://nodejs.org/fr/) (**version recommandée**)
+* [Yarn](https://yarnpkg.com/) (uniquement pour l'API back-end)
+* [npm](https://www.npmjs.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+#### Étape 1 : Installation et lancement du *back-end*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pour fonctionner, l'application nécessite l'API back-end.
 
-### `npm run build`
+Pour l'obtenir et l'installer, il faut :
+1. se rendre sur [P12-SportSee-Back](https://github.com/VGrolleau/P12-SportSee-Back),
+2. suivre les instructions données sur le Readme associé.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+⚠️ Dans les explications données pour l'installation avec Docker,\
+⚠️ et plus précisément la commande qui permet de créer et lancer le container,\
+⚠️ **ne pas oublier `dev` en fin de commande**!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Étape 2 : Installation et lancement du *front-end*
 
-### `npm run eject`
+Une fois l'API installée sur votre PC et fonctionnelle, il faut :
+1. forker le projet actuel sur votre compte github,
+2. le cloner sur votre machine,
+3. installer les paquets manquants en faisant `npm install` (ou `npm i`).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+À partir de là, le projet peut être lancé.\
+La commande permettant le lancement va dépendre de votre OS :
+- **Linux** ou **Mac** : `npm run start_linux_mac`
+- **Windows** : `npm run start_windows`\
+*(J'ai eu besoin de modifier la commande de base pour éviter le lancement du front-end sur le même port que le back-end)*
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Pour consulter le *front-end*, il faut alors aller sur [http://localhost:3001/](http://localhost:3001/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
+## Installation (*english version*)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+* [NodeJS](https://nodejs.org/en/) (**recommanded version**)
+* [Yarn](https://yarnpkg.com/) (back-end API only)
+* [npm](https://www.npmjs.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Step 1: Installating and running *back-end*
 
-### Code Splitting
+To work, application requires its back-end API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To obtain and install it, you need to:
+1. go to [P12-SportSee-Back](https://github.com/VGrolleau/P12-SportSee-Back),
+2. follow given instructions on associated Readme.
 
-### Analyzing the Bundle Size
+⚠️ In the explanations given for the installation with Docker,\
+⚠️ and more precisely the command that allows to create and start the container,\
+⚠️ **don't forget `dev` at the command's end**!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+#### Step 2: Installating and running *front-end*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Once the API is installed on your PC and working, you must:
+1. fork actual project on your github account,
+2. clone it on your local machine,
+3. install missing packages doing `npm install` (or `npm i`).
 
-### Advanced Configuration
+From there, project can be started.
+The command to start will depend on your OS:
+- **Linux** or **Mac** : `npm run start_linux_mac`
+- **Windows** : `npm run start_windows`\
+*(I needed to modify the basic command to avoid starting front-end on the same port as back-end)*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To consult front-end, you have to go to [http://localhost:3001/](http://localhost:3001/).

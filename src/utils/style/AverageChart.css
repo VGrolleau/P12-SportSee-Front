@@ -1,0 +1,18 @@
+.average-chart {
+    width: 258px;
+    height: 263px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+}
+
+.average-chart h2 {
+    margin: 20px 30px;
+    position: absolute;
+    color: rgba(255,255,255,.5);
+    font-weight: 500;
+    font-size: 1.33rem;
+}
+
+.average-chart .responsive-container {
+    background-color: #FF0000;
+    border-radius: 5px;
+}

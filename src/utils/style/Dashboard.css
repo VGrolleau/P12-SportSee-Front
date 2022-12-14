@@ -1,0 +1,40 @@
+.dashboard {
+    margin: 160px 100px 90px 220px;
+}
+
+.dashboard h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.dashboard .firstname {
+    color: #FF0101;
+}
+
+.dashboard p {
+    font-size: 1.5rem;
+}
+
+.charts-counts {
+    display: flex;
+    margin-top: 80px;
+}
+
+.charts {
+    width: 70%;
+}
+
+.under-charts {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.counts {
+    margin-left: 30px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

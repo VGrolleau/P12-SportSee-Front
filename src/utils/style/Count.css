@@ -1,0 +1,48 @@
+.count {
+    display: flex;
+    background-color: #FBFBFB;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.count h2, .count p {
+    margin: 0;
+}
+
+.count h2 {
+    font-size: 1.67rem;
+}
+
+.count p {
+    font-size: 1.17rem;
+    color: #74798C;
+}
+
+.count .img-div {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.count .img-div img {
+    width: 20px;
+}
+
+.count.calorie .img-div {
+    background-color: rgba(255, 0, 0, .07);
+}
+
+.count.protein .img-div {
+    background-color: rgba(74, 184, 255, .1);
+}
+
+.count.carbohydrate .img-div {
+    background-color: rgba(249, 206, 35, .1);
+}
+
+.count.lipid .img-div {
+    background-color: rgba(253, 81, 129, .1);
+}

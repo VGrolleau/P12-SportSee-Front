@@ -1,0 +1,30 @@
+.score-chart {
+    width: 258px;
+    height: 263px;
+    background-color: #FBFBFB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.score-chart h2, .score-chart p {
+    margin: 0;
+    position: absolute;
+}
+
+.score-chart h2 {
+    top: 20px;
+    left: 30px;
+    font-size: 1.33rem;
+}
+
+.score-chart p {
+    text-align: center;
+    font-size: 2.17rem;
+}
+
+.score-chart p span {
+    font-weight: bold;
+}

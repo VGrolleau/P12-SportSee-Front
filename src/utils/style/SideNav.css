@@ -1,0 +1,48 @@
+.sidenav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    background-color: black;
+    color: white;
+    padding: 120px 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sidenav-nav {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.sidenav-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    width: 62px;
+    height: 62px;
+    margin-bottom: 20px;
+    transition: all .2s ease-in-out;
+}
+
+.sidenav-nav a:last-child {
+    margin-bottom: 0;
+}
+
+.sidenav-nav a:hover {
+    background-color: rgba(255,255,255, .85);
+    transition: all .2s ease-in-out;
+}
+
+.sidenav p {
+    margin: 0;
+    width: max-content;
+    transform: rotate(270deg);
+}
