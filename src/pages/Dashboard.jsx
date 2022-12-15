@@ -158,10 +158,10 @@ function Dashboard() {
 
         <div className='charts-counts'>
           <div className='charts'>
-            <ActivityChart userId={URL_ID} userData={userActivity} />
+            <ActivityChart userData={userActivity} />
             <div className='under-charts'>
-              <AverageChart userId={URL_ID} userData={userAverage} />
-              <PerformanceChart userId={URL_ID} userData={userPerformance} />
+              <AverageChart userData={userAverage} />
+              <PerformanceChart userData={userPerformance} />
               <ScoreChart score={score} />
             </div>
           </div>

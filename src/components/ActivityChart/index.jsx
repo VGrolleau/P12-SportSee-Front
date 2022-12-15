@@ -4,8 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import CustomTooltip from './CustomActivityTooltip';
 
 function ActivityChart(props) {
-    const USER_DATA = props.userData;
-    const USER_ACTIVITIES_SESSIONS = USER_DATA;
+    const USER_ACTIVITIES_SESSIONS = props.userData;
 
     if (USER_DATA) {
         return (

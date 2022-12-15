@@ -4,8 +4,7 @@ import '../../utils/style/AverageChart.css';
 import CustomTooltip from './CustomAverageTooltip';
 
 function AverageChart(props) {
-    const USER_DATA = props.userData;
-    let USER_AVERAGE_SESSIONS_API = USER_DATA;
+    const USER_AVERAGE_SESSIONS_API = props.userData;
 
     /* Get first days' letter instead of days' number */
     const DAYS = {
