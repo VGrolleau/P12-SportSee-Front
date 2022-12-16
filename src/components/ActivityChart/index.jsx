@@ -6,7 +6,7 @@ import CustomTooltip from './CustomActivityTooltip';
 function ActivityChart(props) {
     const USER_ACTIVITIES_SESSIONS = props.userData;
 
-    if (USER_DATA) {
+    if (USER_ACTIVITIES_SESSIONS) {
         return (
             <div className="activity-chart">
                 <div className='title-legend'>
