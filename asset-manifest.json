@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/P12-SportSee-Front/static/css/main.1d79f518.css",
-    "main.js": "/P12-SportSee-Front/static/js/main.77074424.js",
+    "main.js": "/P12-SportSee-Front/static/js/main.df2bf1ea.js",
     "static/media/icon-swim.svg": "/P12-SportSee-Front/static/media/icon-swim.bc12b705d445672f550a8441d581c700.svg",
     "static/media/icon-cycle.svg": "/P12-SportSee-Front/static/media/icon-cycle.fe885ecda828d3e2f637bb3b675db76c.svg",
     "static/media/icon-glucides.svg": "/P12-SportSee-Front/static/media/icon-glucides.95581ba1b204199334e122af4784ab16.svg",
@@ -12,10 +12,10 @@
     "static/media/icon-calories.svg": "/P12-SportSee-Front/static/media/icon-calories.25fef86ed5860200bdf90f9cd185e1e3.svg",
     "static/media/icon-strength.svg": "/P12-SportSee-Front/static/media/icon-strength.9d22814b98d0ca386d9ddacded4eae80.svg",
     "main.1d79f518.css.map": "/P12-SportSee-Front/static/css/main.1d79f518.css.map",
-    "main.77074424.js.map": "/P12-SportSee-Front/static/js/main.77074424.js.map"
+    "main.df2bf1ea.js.map": "/P12-SportSee-Front/static/js/main.df2bf1ea.js.map"
   },
   "entrypoints": [
     "static/css/main.1d79f518.css",
-    "static/js/main.77074424.js"
+    "static/js/main.df2bf1ea.js"
   ]
 }
